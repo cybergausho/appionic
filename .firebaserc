@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "servicios-a43be": {
+      "hosting": {
+        "app": [
+          "servicios-a43be"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "servicios-a43be"
+  }
+}

@@ -1,43 +1,63 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="login"></ion-back-button>
-    </ion-buttons>
-    <ion-title><ion-strong>Registro</ion-strong></ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+<ion-header id="iniciologo">
+  <ion-toolbar color="primary" >
+  <div>
+    <!-- <ion-img src="../assets/logohs.png"></ion-img> -->
+    <a><ion-img src="../assets/imagen/logo1.png" class="logoMedio"></ion-img> </a> 
+  </div>
+</ion-toolbar> 
+</ion-header>
+    <!-- <ion-title>BIENVENIDOS</ion-title> -->
+   
+  
+
+<ion-content color="primary">
+
   <ion-card>
     <ion-card-header>
-      <!-- <ion-card-title> INGRESE SUS DATOS </ion-card-title> -->
+      <ion-card-title> Crear cuenta</ion-card-title>
     </ion-card-header>
- 
     <ion-card-content>
-      <form [formGroup]="formularioRegistro"(keyup.enter)="guardar()">
-        <item>
-          <ion-label position="floating">Nombre</ion-label>
-          <ion-input formControName="nombre"></ion-input>
-        </item>
-        <item>
-          <ion-label position="floating">Apellido</ion-label>
-          <ion-input formControName="apelido"></ion-input>
-        </item>
-        <item>
-          <ion-label position="floating">Email</ion-label>
-          <ion-input formControlName="email"></ion-input>
-        </item>
-        <item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input formControlName="contraseña" type="password"></ion-input>
-        </item>
-        <item>
-          <ion-label position="floating">Confirmar Contraseña</ion-label>
-          <ion-input formControlName="confirmarcontraseña" type="password"></ion-input>
-        </item>
-        <br>
-        <ion-button (click)="guardar()">Registrarse</ion-button>
-      </form>
-    </ion-card-content>
-  </ion-card>
+
+  <form>
+    <ion-item lines="full">
+       <ion-label position="floating" class="typoForm">Email</ion-label>
+        <ion-input type="email" #email required></ion-input>
+    </ion-item>
+     <ion-item lines="full">
+        <ion-label position="floating" class="typoForm">Contraseña</ion-label>
+        <ion-input type="password" #password required></ion-input>
+      
+    </ion-item>
+      <ion-row>
+        <ion-col class="containerIngresar">
+          <ion-button class="botonIngresar" type="submit" (click)="registrarse(email,password)" expand="block" color="warning">Registrarse
+
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+
+  </form>
+</ion-card-content>
+
+     <ion-row>
+        <ion-col>
+          <p id="correoConfir">
+           <!-- <a routerLink="/login">Tienes una cuenta?</a>-->
+           Te enviaremos un correo de confirmación
+          </p>
+        </ion-col>
+      </ion-row> 
+
+    </ion-card>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button id="footerIngresar" [routerLink]="['/login']"> Ingresar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
