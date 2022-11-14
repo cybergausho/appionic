@@ -4,6 +4,7 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 import { Publicacion } from '../../models';
 import { LoadingController } from '@ionic/angular';
 import { FirestoregeService } from 'src/app/services/firestorege.service';
+import { AuthService } from 'src/app/services/auth.service'
 
 
 @Component({
@@ -35,7 +36,8 @@ export class SetPublicacionesComponent implements OnInit {
     public  loadingCtrl: LoadingController,
     public toastController: ToastController,
     public alertController: AlertController,
-    public firestoregeService: FirestoregeService
+    public firestoregeService: FirestoregeService,
+    public AuthSrv: AuthService,
     ) { }
     
 
@@ -62,7 +64,7 @@ export class SetPublicacionesComponent implements OnInit {
     const res=await this.firestoregeService.uploadImage(this.newFile,path,name); //en el storege se carga el archivo y res obtiene el enlace
     
    this.newPublicacion.foto=res;
-    this.firestoreService.creatDoc(this.newPublicacion,this.path,this.newPublicacion.id).then(res =>{
+    this.firestoreService.creatDoc(this.newPublicacion,this.path,this.newPublicacion.id, this.AuthSrv.getUid()).then(res =>{
       this.loading.dismiss();//cuando se cumpla la promesa cerramos el loading
       this.presentToast('bottom','Guardado con exito!!');
     }).catch(error=>{
@@ -127,6 +129,7 @@ export class SetPublicacionesComponent implements OnInit {
       telContacto:null,
       id:this.firestoreService.getId(),
       fecha:new Date(),
+      uid:this.AuthSrv.getUid()
     }
   }
   /**

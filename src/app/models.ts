@@ -7,4 +7,5 @@ export interface Publicacion{
     telContacto:number;
     id:string;
     fecha:Date;
+    uid: string;
 }

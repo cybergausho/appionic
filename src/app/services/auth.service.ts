@@ -25,6 +25,7 @@ export class AuthService {
     );
   }
 
+
 async login(email:string, password: string):Promise<User>{
  
   try{
@@ -91,8 +92,17 @@ private updateUserDate(user:User){
     email:user.email,
     emailVerified: user.emailVerified,
     displayName:user.displayName,
+    rol:user.rol,
   };
   return userRef.set(data, { merge:true});
 }
+
+public getUid(){
+  var user = firebase.auth().currentUser;
+  return user.uid;
+}
+
+
+
 
 }

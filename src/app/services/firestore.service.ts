@@ -7,14 +7,14 @@ export class FirestoreService {
 
   constructor(public database:AngularFirestore) { }
 //genera un documento en la base de datos
-  creatDoc(data: any, path: string, id: string){
+  creatDoc(data: any, path: string, id: string, uid:string){
     const collection= this.database.collection(path);
-    return collection.doc(id).set(data)
+    return collection.doc(uid).set(data)
   }
   //lee los datos del cocumento de la base date
-  getDoc(path: string, id:string){
+  getDoc(path: string, id:string, uid:string){
     const collection= this.database.collection(path); //apuntamos a la coleccion
-    return collection.doc(id).valueChanges(); //apuntamos a la collecion el id y vemos el observable
+    return collection.doc(uid).valueChanges(); //apuntamos a la collecion el id y vemos el observable
   }
 
   delateDoc(path: string, id:string){
