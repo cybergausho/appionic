@@ -22,58 +22,20 @@
           <ion-buttons (click)="Salir()"></ion-buttons>
         </ion-buttons> -->
         <br><ion-title>Home</ion-title><br>
-        <ion-item color="secondary" (click)="onClick()" side="left" ><ion-icon  slot="start" [name]="'exit-outline'"></ion-icon>Salir</ion-item>
+        
       </ion-toolbar>
     </ion-header>
-    
-    <ion-app>
-      <ion-split-pane contentId="main">
-    <ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
-      <ion-header>
-        <ion-toolbar color="primary">
-          <ion-title>Menu Homeservice</ion-title>
-        </ion-toolbar>
-      </ion-header>
+    <ion-content>
       
-      <ion-content>
-        <ion-list>
+      <ion-item *ngFor="let publicacion of publicaciones">
+        
+        <app-servicio [publicacion]=publicacion></app-servicio>
 
-            <ion-menu-toggle>
-              <br><br><br>
-              <ion-item >
-                <ion-icon name="create" slot="start"></ion-icon>
-                Publicar</ion-item>
-            </ion-menu-toggle>
-            
-            <ion-menu-toggle>
-              <ion-item >
-                <ion-icon name="list" slot="start"></ion-icon>
-                Avisos</ion-item>
-            </ion-menu-toggle>
-
-            <ion-menu-toggle>
-              
-              <ion-item>
-                <ion-icon name="search" slot="start"></ion-icon>
-                Buscar
-              </ion-item>
-            </ion-menu-toggle>
-            <ion-menu-toggle>
-             
-              <ion-item>
-                <ion-icon name="information-circle-outline" slot="start"></ion-icon>
-                Ayuda  
-              </ion-item> 
-            </ion-menu-toggle>
-
-        </ion-list>
-      </ion-content>
+        
       
-    </ion-menu>
-    <!-- the main content -->
+      </ion-item>
+    </ion-content>
     
-    <ion-router-outlet id="main"></ion-router-outlet>
-  
-  </ion-split-pane>
-
-</ion-app>
+<ion-card>
+  <ion-img></ion-img>
+</ion-card>
